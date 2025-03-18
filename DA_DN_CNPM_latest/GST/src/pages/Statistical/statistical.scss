@@ -1,0 +1,912 @@
+.statis-body {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(240, 244, 245);
+    padding: 0 5%;
+    padding-top: 50px;
+    font-size: 1.2rem;
+
+    // Variables
+    --color-temp: #f92121;
+    --color-light: #0092e4;
+    --color-humid: #25b580;
+    --color-soil: #ff7c01;
+
+    .statis-title {
+        font-weight: bold;
+    }
+
+    .statis-general {
+        display: flex;
+        justify-content: space-between;
+        height: 20vw;
+        min-height: 350px;
+        margin-top: 20px;
+
+        .statis-main {
+            width: 48%;
+            min-width: 500px;
+            height: 100%;
+            background-color: #ffffff;
+            border-radius: 5px;
+
+            .statis-main__top {
+                position: relative;
+                display: flex;
+                align-items: center;
+                height: 15%;
+                font-size: 0.7em;
+                font-weight: bold;
+                border-bottom: 1px solid #d9d9d9;
+
+                .statis-main__title {
+                    padding-left: 20px;
+                }
+
+                i {
+                    position: absolute;
+                    right: 20px;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .statis-main__content {
+                display: flex;
+                flex-direction: column;
+                height: 85%;
+
+                .statis-main__histogram {
+                    height: 75%;
+                    padding-left: 5px;
+                    padding-top: 10px;
+
+                    div {
+                        .recharts-wrapper {
+                            width: 95% !important;
+                            height: 100% !important;
+                            .recharts-surface {
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+                    }
+                }
+
+                .histogram-legend {
+                    display: flex;
+                    height: 25%;
+                    border-top: 1px solid #d9d9d9;
+                    font-size: 0.7em;
+
+                    .legend__temp,
+                    .legend__light,
+                    .legend__humid,
+                    .legend__soil {
+                        display: flex;
+                        align-self: center;
+                        justify-content: center;
+                        width: 25%;
+                        height: 100%;
+                        border-right: 1px solid #d9d9d9;
+
+                        div:first-child {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: 40%;
+                            height: 100%;
+
+                            div {
+                                width: 30px;
+                                height: 30px;
+                            }
+                        }
+
+                        div:last-child {
+                            display: flex;
+                            flex-direction: column;
+                            align-self: center;
+                            width: 60%;
+
+                            p:first-child {
+                                color: #7d7d7d;
+                            }
+
+                            p:last-child {
+                                font-size: 1.3em;
+                                font-weight: bold;
+                            }
+                        }
+                    }
+
+                    .legend__temp {
+                        div:first-child {
+                            div {
+                                background-color: var(--color-temp);
+                            }
+                        }
+                    }
+
+                    .legend__light {
+                        div:first-child {
+                            div {
+                                background-color: var(--color-light);
+                            }
+                        }
+                    }
+
+                    .legend__humid {
+                        div:first-child {
+                            div {
+                                background-color: var(--color-humid);
+                            }
+                        }
+                    }
+
+                    .legend__soil {
+                        border-right: none;
+                        div:first-child {
+                            div {
+                                background-color: var(--color-soil);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        #statis-frequency1 {
+            .statis-frequency__top {
+                font-size: 0.7em;
+            }
+        }
+    }
+
+    .statis-frequency {
+        width: 48%;
+        min-width: 500px;
+        height: 100%;
+        background-color: #ffffff;
+        border-radius: 5px;
+        display: block;
+
+        .statis-frequency__top {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 15%;
+            font-size: 0.8em;
+            font-weight: bold;
+            border-bottom: 1px solid #d9d9d9;
+
+            .statis-frequency__title {
+                padding-left: 20px;
+            }
+
+            i {
+                position: absolute;
+                right: 20px;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .statis-frequency__content {
+            display: flex;
+            height: 85%;
+
+            .statis-frequency__histogram {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 60%;
+                height: 100%;
+                border-right: 1px solid #d9d9d9;
+
+                div {
+                    .recharts-wrapper {
+                        width: 300px !important;
+                        height: 250px !important;
+                        .recharts-surface {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                }
+            }
+
+            .histogram-legend {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 40%;
+                height: 100%;
+                font-size: 0.8em;
+
+                .legend__temp,
+                .legend__light,
+                .legend__humid,
+                .legend__soil {
+                    display: flex;
+                    flex-direction: column;
+                    width: 80%;
+                    height: 50px;
+                    margin: 5px;
+
+                    p {
+                        margin-bottom: 5px;
+                    }
+
+                    div {
+                        width: 100%;
+                        height: 7px;
+                        background-color: #d9d9d9;
+                        border-radius: 5px;
+                    }
+                }
+
+                .legend__temp {
+                    div {
+                        .freq-temp {
+                            width: 0%;
+                            height: 100%;
+                            background-color: var(--color-temp);
+                        }
+                    }
+                }
+
+                .legend__light {
+                    div {
+                        .freq-light {
+                            width: 0%;
+                            height: 100%;
+                            background-color: var(--color-light);
+                        }
+                    }
+                }
+
+                .legend__humid {
+                    div {
+                        .freq-humid {
+                            width: 0%;
+                            height: 100%;
+                            background-color: var(--color-humid);
+                        }
+                    }
+                }
+
+                .legend__soil {
+                    div {
+                        .freq-soil {
+                            width: 0%;
+                            height: 100%;
+                            background-color: var(--color-soil);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #statis-frequency2 {
+        margin-top: 50px;
+        width: 100%;
+        height: 30vw;
+        min-height: 450px;
+        display: none;
+
+        .statis-frequency__top {
+            height: 12%;
+            font-size: 0.8em;
+
+            .statis-frequency__title {
+                padding: 0 30px;
+                font-weight: bold;
+                opacity: 0.8;
+            }
+        }
+    }
+
+    .statis-particular {
+        display: flex;
+        flex-direction: column;
+        height: 35vw;
+        min-height: 450px;
+        background-color: #ffffff;
+        border-radius: 5px;
+        font-size: 0.8em;
+        margin: 50px 0;
+
+        .statis-content {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 12%;
+            border-bottom: 1px solid #d9d9d9;
+
+            .statis-content__title {
+                padding: 0 30px;
+                font-weight: bold;
+                opacity: 0.8;
+            }
+
+            .climate-opt {
+                padding: 2px;
+                border: none;
+                border-bottom: 1px solid #a5a5a5;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            .time-opt {
+                position: absolute;
+                right: 30px;
+                bottom: 0;
+                display: flex;
+                flex-direction: row;
+
+                div {
+                    padding: 15px 10px;
+                    padding-bottom: 15px;
+                    text-transform: uppercase;
+                    opacity: 0.8;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .time-opt-active {
+                font-weight: bold;
+                opacity: 1;
+                border-bottom: 3px solid orange;
+            }
+        }
+
+        .statis-histogram {
+            display: flex;
+            flex-direction: column;
+            height: 88%;
+
+            & > div {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+
+                .recharts-responsive-container {
+                    .recharts-wrapper {
+                        width: 100% !important;
+                        height: 100% !important;
+
+                        .recharts-surface {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                }
+            }
+
+            .TempChart {
+                .legend__temp {
+                    position: absolute;
+                    top: 10px;
+                    width: 120px;
+
+                    & > div {
+                        display: flex;
+                        align-items: center;
+
+                        div {
+                            width: 40%;
+                            height: 5px;
+                            background-color: var(--color-temp);
+                            margin-right: 10px;
+                        }
+
+                        p {
+                            width: 60%;
+                            font-size: 0.9rem;
+                        }
+                    }
+                }
+            }
+
+            .LightChart {
+                display: none;
+
+                .legend__light {
+                    position: absolute;
+                    top: 10px;
+                    width: 80px;
+
+                    & > div {
+                        display: flex;
+                        align-items: center;
+
+                        div {
+                            width: 60%;
+                            height: 5px;
+                            background-color: var(--color-light);
+                            margin-right: 10px;
+                        }
+
+                        p {
+                            font-size: 0.9rem;
+                            width: 40%;
+                        }
+                    }
+                }
+            }
+
+            .HumidChart {
+                display: none;
+
+                .legend__humid {
+                    position: absolute;
+                    top: 10px;
+                    width: 100px;
+
+                    & > div {
+                        display: flex;
+                        align-items: center;
+
+                        div {
+                            width: 50%;
+                            height: 5px;
+                            background-color: var(--color-humid);
+                            margin-right: 10px;
+                        }
+
+                        p {
+                            font-size: 0.9rem;
+                            width: 50%;
+                        }
+                    }
+                }
+            }
+
+            .SoilChart {
+                display: none;
+
+                .legend__soil {
+                    position: absolute;
+                    top: 10px;
+                    width: 140px;
+
+                    & > div {
+                        display: flex;
+                        align-items: center;
+
+                        div {
+                            width: 30%;
+                            height: 5px;
+                            background-color: var(--color-soil);
+                            margin-right: 10px;
+                        }
+
+                        p {
+                            font-size: 0.9rem;
+                            width: 70%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .statis-more {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 12vw;
+        margin-bottom: 50px;
+
+        .statis-more__histogram {
+            display: flex;
+            flex-direction: column;
+            width: 22%;
+            height: 100%;
+            background-color: #ffffff;
+            border-radius: 5px;
+
+            .statis-more-top {
+                display: flex;
+                align-items: center;
+                padding-left: 15px;
+                height: 40%;
+                border-bottom: 1px solid #d9d9d9;
+
+                i {
+                    margin: 0 15px;
+                }
+
+                .uil-sun {
+                    font-size: 35px;
+                    &::before {
+                        background-color: #f9d6d6;
+                        color: var(--color-temp);
+                        border-radius: 50%;
+                    }
+                }
+
+                .uil-brightness-half {
+                    font-size: 35px;
+                    &::before {
+                        background-color: #c5e6fa;
+                        color: var(--color-light);
+                        border-radius: 50%;
+                    }
+                }
+
+                .uil-tear {
+                    font-size: 35px;
+                    &::before {
+                        background-color: #b3f5dd;
+                        color: var(--color-humid);
+                        border-radius: 50%;
+                    }
+                }
+
+                .uil-mountains-sun {
+                    font-size: 35px;
+                    &::before {
+                        background-color: #ffd6b8;
+                        color: var(--color-soil);
+                        border-radius: 50%;
+                    }
+                }
+
+                div {
+                    display: flex;
+                    flex-direction: column;
+
+                    p:first-child {
+                        font-size: 0.7em;
+                        color: #7d7d7d;
+                    }
+
+                    p:last-child {
+                        font-weight: bold;
+                        font-size: 0.8em;
+                    }
+                }
+            }
+
+            .statis-more-bottom {
+                height: 70%;
+
+                div {
+                    height: 100%;
+                    .recharts-wrapper {
+                        width: 100% !important;
+                        height: 100% !important;
+
+                        .recharts-surface {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #statis-more2 {
+        height: 25vw;
+        display: none;
+
+        .statis-more__histogram {
+            width: 45%;
+        }
+    }
+
+    .statis-history {
+        display: flex;
+        justify-content: space-between;
+        height: 500px;
+        margin-bottom: 100px;
+
+        .statis-notification {
+            width: 420px;
+            background-color: #ffffff;
+            border-radius: 5px;
+
+            & > div:first-child {
+                display: flex;
+                align-items: center;
+                height: 15%;
+                padding-left: 30px;
+                font-size: 1rem;
+                font-weight: bold;
+                border-bottom: 1px solid #d9d9d9;
+            }
+
+            .notification-wrap {
+                width: 100%;
+                height: 85%;
+                padding-top: 15px;
+                padding-left: 15px;
+                padding-right: 15px;
+                overflow-y: auto;
+
+                & > div {
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+                    height: 60px;
+                    margin-bottom: 20px;
+                    font-size: 0.8em;
+                    // background-color: red;
+
+                    .notification-avt {
+                        margin-right: 10px;
+                        width: 50px;
+                        height: 40px;
+                        border-radius: 50%;
+                    }
+
+                    .notification-main {
+                        display: flex;
+
+                        .notification-info {
+                            width: 220px;
+                            margin-right: 10px;
+
+                            .notification-name {
+                                font-weight: bold;
+                            }
+
+                            .notification-time {
+                                color: #9c9b9b;
+                                font-size: 0.9em;
+                            }
+                        }
+
+                        div:last-child {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+
+                            .notification-activity {
+                                width: 80px;
+                                height: 40px;
+                                background-color: #25b580;
+                                border-radius: 5px;
+                                font-size: 0.9em;
+                                font-weight: bold;
+                                color: #ffffff;
+
+                                &:hover {
+                                    cursor: pointer;
+                                    opacity: 0.8;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .statis-report {
+            width: calc(95% - 420px);
+            background-color: #ffffff;
+            border-radius: 5px;
+
+            & > div:first-child {
+                position: relative;
+                display: flex;
+                align-items: center;
+                height: 15%;
+                padding-left: 30px;
+                font-size: 1rem;
+                font-weight: bold;
+                border-bottom: 1px solid #d9d9d9;
+
+                .statis-subnoti {
+                    position: absolute;
+                    right: 10px;
+                    width: 40px;
+                    height: 40px;
+                    display: none;
+
+                    i {
+                        color: red;
+                        font-size: 30px;
+                        text-align: center;
+
+                        &:hover {
+                            cursor: pointer;
+                            opacity: 0.4;
+                        }
+                    }
+                }
+            }
+
+            .report-wrap {
+                width: 100%;
+                height: 85%;
+                overflow-y: auto;
+
+                table {
+                    font-size: 0.9em;
+
+                    tr:first-child {
+                        font-size: 0.9em;
+                        height: 40px;
+                        line-height: 0;
+                        color: #000000;
+                        border-bottom: 1px solid #d9d9d9;
+                    }
+                    tr {
+                        height: 55px;
+                        color: #585858;
+
+                        #report-id {
+                            width: 5%;
+                        }
+
+                        #report-editor {
+                            width: 15%;
+                        }
+
+                        #report-activity {
+                            width: 20%;
+                        }
+
+                        #report-date {
+                            width: 20%;
+                        }
+
+                        #report-action {
+                            width: 5%;
+                        }
+
+                        th {
+                            padding-left: 3%;
+                        }
+
+                        td {
+                            padding-left: 3%;
+                            font-size: 0.9em;
+
+                            input {
+                                color: #585858;
+                                background-color: #ffffff;
+                                outline: none;
+                                border: none;
+                                width: 100%;
+                            }
+                        }
+
+                        th:last-child {
+                            padding-left: 0;
+                            text-align: center;
+                        }
+
+                        td:last-child {
+                            padding-left: 0;
+                            text-align: center;
+                            color: red;
+                            font-size: 1.2em;
+
+                            i {
+                                padding: 5px 10px;
+
+                                &:hover {
+                                    cursor: pointer;
+                                    background-color: #e9e9e9;
+                                }
+                            }
+
+                            i:last-child {
+                                font-size: 1.4em;
+                                padding: 0 5px;
+                                background-color: #ff8181;
+                                color: #ffffff;
+                                border-radius: 50%;
+                                display: none;
+
+                                &:hover {
+                                    opacity: 0.8;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        /* width */
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #aaaaaa;
+            border-radius: 15px;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            cursor: pointer;
+            background: #8e8e8e;
+        }
+    }
+}
+
+@media only screen and (max-width: 1300px) {
+    .statis-body {
+        .statis-general {
+            height: 35vw;
+            min-height: 450px;
+            .statis-main {
+                width: 100%;
+
+                .statis-main__top {
+                    font-size: 0.8em;
+
+                    .statis-main__title {
+                        padding: 0 30px;
+                        font-weight: bold;
+                        opacity: 0.8;
+                    }
+                }
+            }
+            #statis-frequency1 {
+                display: none;
+            }
+        }
+
+        #statis-frequency2 {
+            display: block;
+        }
+
+        #statis-more1 {
+            height: 25vw;
+
+            .statis-more__histogram {
+                width: 45%;
+            }
+
+            .histogram-subHumid,
+            .histogram-subSoil {
+                display: none;
+            }
+        }
+
+        #statis-more2 {
+            display: flex;
+        }
+    }
+
+    .statis-notification {
+        display: none;
+    }
+
+    .statis-report {
+        width: 100% !important;
+
+        div:first-child {
+            .statis-subnoti {
+                display: block !important;
+            }
+        }
+    }
+}
